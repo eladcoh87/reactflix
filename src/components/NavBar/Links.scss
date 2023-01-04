@@ -1,0 +1,21 @@
+.LinksContainer {
+
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2.3rem;
+
+a{
+
+color: white;
+text-decoration: none;
+margin-right: 1rem;
+
+&:hover {
+    color: #FEDB00;
+}
+
+
+}
+
+}
