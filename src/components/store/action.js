@@ -8,9 +8,6 @@ export const getMoviesAction = (Search) => {
 
 
 
-
-
-
   return (
 
 
@@ -21,6 +18,22 @@ export const getMoviesAction = (Search) => {
 
   )
 
+
+}
+
+export const updateLastSearch = (Search) => {
+
+
+
+  return (
+
+
+
+    {type:'LAST_SEARCH',payload:Search}
+
+
+
+  )
 
 
 }

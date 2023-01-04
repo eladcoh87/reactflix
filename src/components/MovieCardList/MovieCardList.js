@@ -14,6 +14,7 @@ const MovieCardList = () => {
 const dispatch = useDispatch();
 
 const movieList =  useSelector(state => state.firstMoviesList)
+
 console.log(movieList);
   
 
@@ -38,13 +39,20 @@ const renderMovieList = movieList.map((movie => <Grid item key={movie.imdbID}> <
 ))
 
 
-
+  
 
   return (
 
 
     <div className='movieListContainer'>
+      <div className='hedline'>
+        
+        {movieList.length > 0 && <h1>SEARCH RESULT : {movieList[0].Title} </h1>}
+       
+        </div>
       
+
+
       <Grid className='GridCardContainer' container spacing={2}>
       
       

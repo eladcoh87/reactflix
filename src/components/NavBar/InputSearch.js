@@ -4,7 +4,8 @@ import { useDispatch,  } from 'react-redux'
 import './InputSearch.scss'
 import SearchIcon from '@mui/icons-material/Search';
 import { getMoviesApi } from '../apis/apis';
-import { getMoviesAction } from '../store/action';
+import { getMoviesAction ,updateLastSearch} from '../store/action';
+import LastSearchResult from './LastSearchResult';
 
 
 
@@ -12,7 +13,11 @@ import { getMoviesAction } from '../store/action';
 const InputSearch = () => {
 
   const [movieSearch,setMovieSearch] = useState('')
+  const [movieNotFound,setMovieNotFound] = useState(false)
+
 const dispatch = useDispatch()
+
+
 
 
 const handelOnChange = (event) => {
@@ -28,16 +33,39 @@ const handelOnChange = (event) => {
 
 event.preventDefault()
 
-
+dispatch((updateLastSearch(movieSearch)))
 console.log(movieSearch);
 
 const newParamsMovie = new URLSearchParams({s:movieSearch,type:'movie'})
 
 const newSearchMovie = getMoviesApi(newParamsMovie);
 console.log(newSearchMovie);
+setMovieSearch("");
+
+newSearchMovie.then(movies => {
+  
+
+  if(!movies) {
 
 
-newSearchMovie.then(movies => dispatch(getMoviesAction(movies))).catch(error => console.log(error));
+    throw new Error('somtinhg went wrong!!')
+
+  }
+
+  
+  setMovieNotFound(false)
+  dispatch(getMoviesAction(movies))})
+  .catch(error => {
+    
+    
+    console.log(error)
+    
+    setMovieNotFound(true)
+  });
+
+
+ 
+
 
 
   }
@@ -54,6 +82,7 @@ newSearchMovie.then(movies => dispatch(getMoviesAction(movies))).catch(error => 
 <IconButton type="submit" className='icon' aria-label="delete">
   <SearchIcon />
 </IconButton>
+{movieNotFound &&  <p>something went wrong can't find the movie</p> }
 </form>
 
     </div>
