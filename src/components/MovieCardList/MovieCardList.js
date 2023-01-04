@@ -11,7 +11,7 @@ import { getMoviesAction } from '../store/action';
 
 const MovieCardList = () => {
 
-const dispatch = useDispatch()
+const dispatch = useDispatch();
 
 const movieList =  useSelector(state => state.firstMoviesList)
 console.log(movieList);
@@ -20,7 +20,10 @@ console.log(movieList);
 useEffect(() => {
 
 
-  const movies = getMoviesApi();
+
+const movies = getMoviesApi();
+
+
 console.log(movies);
 
   movies.then(movies => dispatch(getMoviesAction(movies))).catch(error => console.log(error));

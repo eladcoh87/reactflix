@@ -1,8 +1,10 @@
-import { FormControl, FormHelperText, IconButton, Input, InputLabel, TextField } from '@mui/material'
+import {IconButton, Input, InputLabel, TextField } from '@mui/material'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch,  } from 'react-redux'
 import './InputSearch.scss'
 import SearchIcon from '@mui/icons-material/Search';
+import { getMoviesApi } from '../apis/apis';
+import { getMoviesAction } from '../store/action';
 
 
 
@@ -10,7 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const InputSearch = () => {
 
   const [movieSearch,setMovieSearch] = useState('')
-
+const dispatch = useDispatch()
 
 
 const handelOnChange = (event) => {
@@ -28,6 +30,14 @@ event.preventDefault()
 
 
 console.log(movieSearch);
+
+const newParamsMovie = new URLSearchParams({s:movieSearch,type:'movie'})
+
+const newSearchMovie = getMoviesApi(newParamsMovie);
+console.log(newSearchMovie);
+
+
+newSearchMovie.then(movies => dispatch(getMoviesAction(movies))).catch(error => console.log(error));
 
 
   }

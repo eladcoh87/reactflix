@@ -3,13 +3,24 @@ import React from 'react'
 
 
 
-export const getMoviesApi = async () => {
+
+const defParams = new URLSearchParams({s:'king kong',type:'movie'})
+ 
+export const getMoviesApi = async (getParams = defParams) => {
+
+
+
+  console.log('from api func')
+console.log(getParams)
+
+const option = {method: 'GET',headers: {  'Content-Type': 'application/json'},mode: 'no-cors'}
 
 
     try {
-    const getParams = new URLSearchParams({s:'king kong',type:'movie'})
+
 
     const response = await fetch(`http://www.omdbapi.com/?apikey=d8902cf1&${getParams}`)
+    
     if (!response.ok) {
         throw new Error('somtinhg went wrong!!')
       }
@@ -28,4 +39,3 @@ export const getMoviesApi = async () => {
   }
 
 
-  
