@@ -7,7 +7,7 @@
 
 ## Live Demo 🌐 :
 
-https://todo-app-redux-fire-base.vercel.app
+https://reactflix-movie-app-redux-imdb-api.vercel.app
 
 
 or
