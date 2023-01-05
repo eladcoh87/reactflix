@@ -5,12 +5,7 @@
  npm install
 
 
-## Live Demo 🌐 :
 
-https://reactflix-movie-app-redux-imdb-api.vercel.app
-
-
-or
 
 
 ## Install 📔
