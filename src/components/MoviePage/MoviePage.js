@@ -14,13 +14,16 @@ const {id} = useParams()
 
 console.log(id);
 
+
+
 console.log(movieDetail);
+
+
 useEffect(() => {
 
 
   const getMovie = async (id) => {
 
-  const options = {method: 'GET',headers: {'Content-Type': 'application/json'},mode: 'no-cors'}
   const params = new URLSearchParams({i:id,type:'movie',plot:'full'})
 
   
