@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMoviesApi } from '../apis/apis.js';
 import { getMoviesAction } from '../store/action';
-
+import { Link } from 'react-router-dom';
 
 
 const MovieCardList = () => {
@@ -35,7 +35,19 @@ console.log(movies);
 
 
 
-const renderMovieList = movieList.map((movie => <Grid item key={movie.imdbID}> <MovieCard title={movie.Title} year={movie.Year} imgUrl={movie.Poster} /> </Grid>  
+const renderMovieList = movieList.map((movie => <Grid item key={movie.imdbID}>
+  
+  
+  <Link to={`MoviePageDetail/${movie.imdbID}`}>
+
+
+   <MovieCard title={movie.Title} year={movie.Year} id={movie.imdbID} imgUrl={movie.Poster} /> 
+   
+   
+   </Link>
+  
+   
+   </Grid>  
 ))
 
 

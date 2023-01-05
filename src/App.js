@@ -1,6 +1,8 @@
 import MovieCardList from './components/MovieCardList/MovieCardList';
 import NavBar from './components/NavBar/NavBar'
 import './App.scss'
+import { Route, Routes } from "react-router-dom"
+import MoviePage from './components/MoviePage/MoviePage';
 
 function App() {
 
@@ -12,9 +14,11 @@ function App() {
     <div>
 
       <NavBar />
-      
-      <MovieCardList />
-      
+      <Routes>
+      <Route path="/" element={<MovieCardList />} />
+      <Route path="MoviePageDetail/:id" element={<MoviePage />} />
+
+      </Routes>
 
     </div>
 
