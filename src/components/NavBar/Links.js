@@ -27,7 +27,7 @@ console.log(SearchLastArr.length);
 
         <div>
 
-            <Link to="/"><a href="#">Home</a></Link>
+            <Link to="/">Home</Link>
 
         </div>
         {SearchLastArr.length > 0 && <LastSearchResult /> }
