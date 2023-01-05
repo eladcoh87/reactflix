@@ -1,6 +1,6 @@
 
 ## Description 📚
- React app to TODO TASKS. This app uses the Redux for state management,firebase api , along with mui. 
+ React Movie app. This app uses the Redux for state management,react router , along with mui. 
 ## Installation 💡 
  npm install
 
