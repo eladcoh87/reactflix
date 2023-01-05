@@ -4,7 +4,7 @@ import React from 'react'
 
 
 
-const defParams = new URLSearchParams({s:'king kong',type:'movie'})
+const defParams = new URLSearchParams({s:'superman',type:'movie'})
  
 export const getMoviesApi = async (getParams = defParams) => {
 
