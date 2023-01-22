@@ -28,7 +28,6 @@ const InputSearch = () => {
     });
 
     const newSearchMovie = getMoviesApi(newParamsMovie);
-    console.log(newSearchMovie);
     setMovieSearch('');
 
     newSearchMovie
