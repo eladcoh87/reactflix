@@ -1,29 +1,19 @@
 .InputSearchContianer {
+  margin-right: 2rem;
 
-margin-right: 2rem;
-
-
-
-.inputSearch.MuiTextField-root{
-
-
+  .inputSearch.MuiTextField-root {
     background-color: white;
     border-radius: 10px;
     width: 300px;
-   
-}
+  }
 
-
-
-.icon{
-
+  .icon {
     color: white;
-}
+  }
 
-p {
+  p {
     margin-top: 5px;
     color: red;
     font-size: 16px;
-    
-    }
+  }
 }

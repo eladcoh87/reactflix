@@ -1,64 +1,37 @@
-import React from 'react'
-import './LastSearchItem.scss'
+import React from 'react';
+import './LastSearchItem.scss';
 import { getMoviesApi } from '../apis/apis';
 import { useDispatch } from 'react-redux';
 import { getMoviesAction } from '../store/action';
 
+const LastSearchItem = ({ SearchKeyWord }) => {
+  const dispatch = useDispatch();
 
-
-
-
-
-
-
-
-const LastSearchItem = ({SearchKeyWord}) => {
-
-    console.log(SearchKeyWord);
-const dispatch =  useDispatch()
-
-const handelOnClick = (event) => {
-
-
-    const newParamsMovie = new URLSearchParams({s:SearchKeyWord,type:'movie'})
-
-const LastSearchMovieData = getMoviesApi(newParamsMovie)
-    
-console.log(LastSearchMovieData);
-
-
-LastSearchMovieData.then(movies => {
-  
-
-    if(!movies) {
-  
-  
-      throw new Error('somtinhg went wrong!!')
-  
-    }
-  
-    
-    dispatch(getMoviesAction(movies))})
-    .catch(error => {
-      
-      
-      console.log(error)
-      
+  const handelOnClick = (event) => {
+    const newParamsMovie = new URLSearchParams({
+      s: SearchKeyWord,
+      type: 'movie',
     });
 
-
-}
-
+    const LastSearchMovieData = getMoviesApi(newParamsMovie);
 
 
+    LastSearchMovieData.then((movies) => {
+      if (!movies) {
+        throw new Error('somtinhg went wrong!!');
+      }
+
+      dispatch(getMoviesAction(movies));
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
 
   return (
+    <button onClick={handelOnClick} className="lastSearchBtn">
+      {SearchKeyWord}
+    </button>
+  );
+};
 
-
-    <button onClick={handelOnClick} className='lastSearchBtn'>{SearchKeyWord}</button>
-
-
-  )
-}
-
-export default LastSearchItem
+export default LastSearchItem;
